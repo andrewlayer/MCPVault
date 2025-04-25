@@ -4,13 +4,20 @@ MCPVault (`mcpv`) is a CLI tool for managing MCP server configurations in a key-
 
 ## Features
 
-- Store and manage JSON configurations
-- Hybrid storage model with index and individual files
-- Simple CLI interface with intuitive commands
-- Atomic file operations for reliability
+- Store and manage MCP JSON configurations
 
-## Installation (Local)
+## Installation MacOS (Local)
+```bash
+# Clone the repository
+git clone https://github.com/andrewlayer/MCPVault.git
+cd MCPVault
 
+# Build the binary
+go build -o mcpv
+
+# Move to a directory in your PATH (optional)
+sudo mv mcpv /usr/local/bin/
+```
 
 ### Using Homebrew
 Well I need >75 stars to get this on Homebrew. So, if you like this project, please star it (or fork it)!
