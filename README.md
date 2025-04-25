@@ -1,4 +1,4 @@
-# MCPVault 🔐
+# MCPVault 🗃️
 
 MCPVault (`mcpv`) is a stupidly simple CLI tool for managing MCP server configurations.  It allows you to add, remove, list, and view configurations for your MCP servers.
 
@@ -8,8 +8,6 @@ MCPVault (`mcpv`) is a stupidly simple CLI tool for managing MCP server configur
  - `mcpv remove <name>` - Remove a configuration
  - `mcpv list` - List all configurations
  - `mcpv cat <name>` - View a configuration
-
-![usage](usage.png)
 
 ## Installation MacOS (Local)
 ```bash
