@@ -1,10 +1,15 @@
 # MCPVault 🔐
 
-MCPVault (`mcpv`) is a CLI tool for managing MCP server configurations in a key-value store approach. It allows developers to add, remove, list, and view configurations for their MCP servers.
+MCPVault (`mcpv`) is a stupidly simple CLI tool for managing MCP server configurations.  It allows you to add, remove, list, and view configurations for your MCP servers.
 
 ## Features
+ - `mcpv add <path> <name> <description> ` - Add a configuration from a file
+ - `mcpv add "{}" --name JobSearch` - Add a configuration from a JSON string
+ - `mcpv remove <name>` - Remove a configuration
+ - `mcpv list` - List all configurations
+ - `mcpv cat <name>` - View a configuration
 
-- Store and manage MCP JSON configurations
+![usage](usage.png)
 
 ## Installation MacOS (Local)
 ```bash
