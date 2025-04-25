@@ -13,6 +13,12 @@ var (
 	listVerbose bool
 )
 
+// ANSI escape codes for text formatting
+const (
+	boldOn  = "\033[1m"
+	boldOff = "\033[0m"
+)
+
 // listCmd represents the list command
 var listCmd = &cobra.Command{
 	Use:     "list",
@@ -44,14 +50,30 @@ Examples:
 		sort.Strings(configs)
 
 		for _, config := range configs {
-			fmt.Fprintln(os.Stdout, config)
 			if listVerbose {
-				fmt.Fprintln(os.Stdout) // Add a blank line between verbose entries
+				name := config[:getNameEndIndex(config)]
+				details := config[getNameEndIndex(config):]
+				fmt.Fprintf(os.Stdout, "%s%s%s%s\n", boldOn, name, boldOff, details)
+				fmt.Fprintln(os.Stdout)
+			} else {
+				fmt.Fprintf(os.Stdout, "%s%s%s\n", boldOn, config, boldOff)
 			}
 		}
 
 		return nil
 	},
+}
+
+// getNameEndIndex finds where the name ends in the verbose output string
+func getNameEndIndex(config string) int {
+	// In verbose mode, the format is "name\n  Description: ..."
+	// so we find the first newline character
+	for i, char := range config {
+		if char == '\n' {
+			return i
+		}
+	}
+	return len(config) // If no newline is found, return the whole string
 }
 
 func init() {
